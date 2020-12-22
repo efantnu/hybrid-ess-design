@@ -1,6 +1,8 @@
 # Data set and simulation files
 This repository contains the data set and simulation files of the paper "Design of Hybrid Energy Storage Systems for Inertial and Primary Frequency Control" authored by Erick F. Alves, Daniel dos Santos Mota and Elisabetta Tedeschi. With these files, it is possible to reproduce all the simulations and results obtained in the paper.
 
+[![DOI](https://zenodo.org/badge/309682550.svg)](https://zenodo.org/badge/latestdoi/309682550)
+
 # File organization
 - energy_storage.slx: Simulink file containing the surrogate model of the case study presented in the section "Design validation"
 - energy_storage_pre.m: MATLAB script that should be executed before running the Simulink model. Contains the parameters of all equipment and simulation options.
