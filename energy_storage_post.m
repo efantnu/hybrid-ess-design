@@ -1,7 +1,8 @@
 %% Script Parameters
 tStart = 0;
-tEnd = 340;
-saveResults = 1;
+tEnd = simu.tTotal;
+saveResults = 0;
+saveTxt = 0;
 
 switch(caseNumber)
     case 1
@@ -66,24 +67,24 @@ PlotTable.PFlex = Plot.PFlex.Data;
 PlotTable.PWT = Plot.PWT.Data;
 
 
-if saveResults
+if saveTxt
     filename = strcat('results',caseDescription,'.txt');
     writetable(PlotTable,filename,'Delimiter','\t');
 end
 
 %% Energy calculations
 rtr = 0.05;     % Maximum transient frequency deviation [pu]
-rss = 0.02;     % Maximum steady-state frequency deviation [pu]
-Tarr = 8; %25;      % Arrest period [s]
-Treb = 120; %15;      % Rebound period [s]
-Trec = 165; %120;     % Recovery period [s]
+rss = 0.02; %0.03;     % Maximum steady-state frequency deviation [pu]
+Tarr = 11; %3.5;       % Arrest period [s]
+Treb = 17; %120;       % Rebound period [s]
+Trec = 150; %230;      % Recovery period [s]
 
 % Proposed
 EES1arr = 1/12 * Tarr * (2*rtr^2 + 3*rtr);
 EES1reb = 1/6 * Treb * (2*rtr^3 + 3*rtr^2 - 2*rss^3 - 3*rss^2) / (rtr - rss);
 EES1rec = 1/12 * Trec * (2*rss^2 + 3*rss);
 
-ES1calc = (es1.Prated/rss)/3600 * (EES1arr + EES1reb + EES1rec);
+EES1calc = (es1.Prated/rss)/3600 * (EES1arr + EES1reb + EES1rec);
 
 % Simulation
 EES1sim = trapz(0.1/3600,Plot.PES1.Data)*grid.Sb;

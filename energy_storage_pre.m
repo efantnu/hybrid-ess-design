@@ -118,7 +118,7 @@ gt1.SM.TdpSC = 0.92;            % d-axis transient time - short-circuit [s]
 gt1.SM.TdppSC = 0.022;          % d-axis subtransient time - short-circuit [s]
 gt1.SM.TqppSC = 0.0334;         % q-axis subtransient time - short-circuit [s]
 gt1.SM.Rs = 0.0242;             % Stator (armature) resistance [pu]
-gt1.SM.M = 2*5.1*70/88;         % Inertia constant [s]
+gt1.SM.M = 5.1*88/70;           % Inertia constant [s]
 gt1.SM.p = 2;                   % Pairs of poles
 
 % Turbine
